@@ -1,4 +1,4 @@
-# Eliza
+# Manny AI 🦣
 
 ## Edit the character files
 
