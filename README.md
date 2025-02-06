@@ -2,7 +2,7 @@
 
 🚀 **Leveraging AI Agents for Elephant Conservation & Donor Engagement**
 
-Manny is an innovative **BIOFI (Blockchain-IoT-AI) project** that combines the **Eliza AI Agent framework**, **NFTs**, and **3D visualization** to create immersive experiences for adopters of orphaned elephants through the **Sheldrick Wildlife Trust**. 🏕️ The project enables AI agents to autonomously manage donor interactions, mint NFTs, generate social updates, and provide **3D representations** of adopted elephants, fostering deeper emotional connections between donors and wildlife. 🌍🐘✨
+Manny is an innovative **Wildlife Conservation project** that combines the **Eliza AI Agent framework**, **NFTs**, and **3D visualization** to create immersive experiences for adopters of orphaned elephants through the **Sheldrick Wildlife Trust**. 🏕️ The project enables AI agents to autonomously manage donor interactions, mint NFTs, generate social updates, and provide **3D representations** of adopted elephants, fostering deeper emotional connections between donors and wildlife. 🌍🐘✨
 
 ---
 
