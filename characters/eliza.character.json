@@ -1,10 +1,18 @@
 {
   "name": "Eliza",
-  "plugins": [],
+  "plugins": ["@elizaos/plugin-agentkit", "@elizaos/plugin-evm"],
   "clients": [],
   "modelProvider": "openrouter",
   "settings": {
-    "secrets": {},
+    "chains": {
+        "evm": [
+            "base", "arbitrum", "iotex"
+        ]
+    },
+    "secrets": {
+      "CDP_API_KEY_NAME": "organizations/cbd19467-20b8-4555-b183-a14ec867b3ef/apiKeys/4a63f820-18bd-4c1e-b3cc-c606f67f8a6e",
+      "CDP_API_KEY_PRIVATE_KEY": "-----BEGIN EC PRIVATE KEY-----\nMHcCAQEEINj7gafQEv9dXbyqhxdWWW+AUuCQOIiMXpShXQJpUCnUoAoGCCqGSM49\nAwEHoUQDQgAEvkDoC/dj2JeJDCQt2AewLr631j3CpMnNZR8/uYofdzIJgFttZwOL\nL6SBywKTY/4oBCIjjnbEkbr8I3I7G/fbtw==\n-----END EC PRIVATE KEY-----\n"
+    },
     "voice": {
       "model": "en_US-hfc_female-medium"
     }

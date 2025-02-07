@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #chat {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        #input {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat Application</h1>
+    <div id="chat"></div>
+    <input type="text" id="input" placeholder="Type your message..." />
+    <button id="send">Send</button>
+
+    <script>
+        const chatDiv = document.getElementById('chat');
+        const inputField = document.getElementById('input');
+        const sendButton = document.getElementById('send');
+
+        sendButton.addEventListener('click', async () => {
+            const userInput = inputField.value;
+            if (userInput.trim() === '') return;
+
+            // Display user message
+            chatDiv.innerHTML += `<div>You: ${userInput}</div>`;
+            inputField.value = '';
+
+            try {
+                const response = await fetch(`http://localhost:3000/botID/message`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: userInput, userId: 'user', userName: 'User' }),
+                });
+
+                const data = await response.json();
+                data.forEach((message) => {
+                    chatDiv.innerHTML += `<div>Agent: ${message.text}</div>`;
+                });
+            } catch (error) {
+                console.error('Error fetching response:', error);
+            }
+
+            // Scroll to the bottom of the chat
+            chatDiv.scrollTop = chatDiv.scrollHeight;
+        });
+    </script>
+</body>
+</html>

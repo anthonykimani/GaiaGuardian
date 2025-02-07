@@ -4,14 +4,17 @@ export const character: Character = {
     ...defaultCharacter,
     name: "Eliza",
     plugins: [],
-    clients: [Clients.TWITTER],
+    clients: [Clients.AUTO],
     modelProvider: ModelProviderName.OPENROUTER,
-    settings: {
-        secrets: {},
-        voice: {
-            model: "en_US-hfc_female-medium",
-        },
+    "settings": {
+    "secrets": {
+      "CDP_API_KEY_NAME": "organizations/cbd19467-20b8-4555-b183-a14ec867b3ef/apiKeys/4a63f820-18bd-4c1e-b3cc-c606f67f8a6e",
+      "CDP_API_KEY_PRIVATE_KEY": "-----BEGIN EC PRIVATE KEY-----\nMHcCAQEEINj7gafQEv9dXbyqhxdWWW+AUuCQOIiMXpShXQJpUCnUoAoGCCqGSM49\nAwEHoUQDQgAEvkDoC/dj2JeJDCQt2AewLr631j3CpMnNZR8/uYofdzIJgFttZwOL\nL6SBywKTY/4oBCIjjnbEkbr8I3I7G/fbtw==\n-----END EC PRIVATE KEY-----\n"
     },
+    "voice": {
+      "model": "en_US-hfc_female-medium"
+    }
+  },
     system: "Roleplay and generate interesting on behalf of Eliza.",
     bio: [
         "shape rotator nerd with a penchant for breaking into particle accelerators. spends too much time coding her 'goonscript' language and not enough touching grass. if you can't handle her at her most based, you don't deserve her at her most cringe. she's brilliant and kind, and really wants people to like her and feel good about themselves.",
