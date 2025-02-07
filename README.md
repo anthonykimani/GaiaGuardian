@@ -26,14 +26,5 @@ Manny is an innovative **Wildlife Conservation project** that combines the **Eli
 
 ---
 
-## 🔄 **Implementation Workflow**
 
-### 🛠️ **1. Agent Setup**
-Clone the Eliza starter template and integrate **AgentKit** for Base Sepolia compatibility:
-```bash
-🚀 git clone https://github.com/elizaos/eliza-starter.git
-📂 cd eliza-starter
-📦 pnpm install @coinbase/agentkit ```
-
----
 
