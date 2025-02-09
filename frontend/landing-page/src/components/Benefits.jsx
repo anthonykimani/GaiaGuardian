@@ -14,9 +14,9 @@ const Benefits = () => {
           className="md:max-w-md lg:max-w-2xl"
           title={
             <>
-              Chat Smarter, Not Harder with{" "}
+              Check on your adopted {" "}
               <span className="inline-block relative font-semibold">
-                Brainwave
+              Animals
                 <img
                   src={curve}
                   className="absolute top-full left-0 w-full xl:-mt-2 pointer-events-none select-none"
@@ -50,7 +50,7 @@ const Benefits = () => {
                   />
 
                   <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider">
-                    Explore more
+                    Interact
                   </p>
                   <Arrow />
                 </div>

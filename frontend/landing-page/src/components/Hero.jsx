@@ -25,16 +25,16 @@ const Hero = () => {
       <div ref={parallaxRef} className="container relative">
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[4rem] md:mb-20 lg:mb-[6rem]">
           <h1 className="h1 mb-6">
-            Explore the Possibilities of
+          Discover the Future of
             <br />
             <Typewriter
               options={{
                 strings: [
-                  "AI Chatting",
-                  "Photo Editing",
-                  "Video Generation",
-                  "Image Generation",
-                  "Code Generation",
+                  "Elephant Conservation",
+                  "Wildlife Protection",
+                  "Sustainable Ecosystems",
+                  "Community Engagement",
+                  "Innovative Preservation",
                 ],
                 autoStart: true,
                 loop: true,
@@ -43,10 +43,10 @@ const Hero = () => {
           </h1>
 
           <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
-            Unleast the power of AI within Brainwave. Upgrade your productivity
+          Join us in revolutionizing wildlife conservation with{" "}
             with{" "}
             <span className="inline-block relative font-semibold">
-              Brainwave
+            Manny
               <img
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-2 pointer-events-none select-none"
@@ -55,11 +55,11 @@ const Hero = () => {
                 alt="Curve"
               />
             </span>
-            , the open AI chat app.
+            Embrace the power of Web3 technology to adopt and interact with orphaned elephants, making a tangible impact on their lives and the environment.
           </p>
 
           <Button href="#pricing" white>
-            Get started
+          Get Involved
           </Button>
         </div>
 
@@ -92,7 +92,7 @@ const Hero = () => {
                 <ScrollParallax isAbsolutelyPositioned>
                   <Notification
                     className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex"
-                    title="Code generation"
+                    title="wildlife regeneration"
                   />
                 </ScrollParallax>
               </div>
