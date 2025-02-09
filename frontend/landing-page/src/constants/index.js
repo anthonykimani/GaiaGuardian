@@ -4,6 +4,11 @@ import {
   benefitIcon3,
   benefitIcon4,
   benefitImage2,
+  benefitImage3,
+  benefitImage4,
+  benefitImage5,
+  benefitImage6,
+  benefitImage7,
   chromecast,
   disc02,
   discord,
@@ -256,7 +261,7 @@ export const benefits = [
     text: "A female elephant born on April 8, 2021. Orphaned due to drought-related causes, she is currently under the care of the Sheldrick Wildlife Trust.",
     backgroundUrl: "/src/assets/benefits/card-2.svg",
     iconUrl: benefitIcon1,
-    imageUrl: benefitImage2,
+    imageUrl: benefitImage3,
     light: true,
   },
   {
@@ -265,7 +270,7 @@ export const benefits = [
     text: "A female elephant born on January 1, 2021. She was found alone and is now being rehabilitated by the Sheldrick Wildlife Trust.",
     backgroundUrl: "/src/assets/benefits/card-3.svg",
     iconUrl: benefitIcon1,
-    imageUrl: benefitImage2,
+    imageUrl: benefitImage4,
   },
   {
     id: "3",
@@ -274,7 +279,7 @@ export const benefits = [
     backgroundUrl: "/src/assets/elephants/card-4.svg",
     backgroundUrl: "/src/assets/benefits/card-4.svg",
     iconUrl: benefitIcon1,
-    imageUrl: benefitImage2,
+    imageUrl: benefitImage5,
     light: true,
   },
   {
@@ -283,7 +288,7 @@ export const benefits = [
     text: "Rescued from a pit latrine in Tsavo West, Emily overcame her traumatic start to become the matriarch of a large herd of wild-living female orphans. She has successfully reintegrated into the wild and has given birth to two calves.",
     backgroundUrl: "/src/assets/benefits/card-5.svg",
     iconUrl: benefitIcon1,
-    imageUrl: benefitImage2,
+    imageUrl: benefitImage6,
   },
   {
     id: "5",
@@ -292,7 +297,7 @@ export const benefits = [
     backgroundUrl: "/src/assets/elephants/card-6.svg",
     backgroundUrl: "/src/assets/benefits/card-6.svg",
     iconUrl: benefitIcon1,
-    imageUrl: benefitImage2,
+    imageUrl: benefitImage7,
   },
 ];
 

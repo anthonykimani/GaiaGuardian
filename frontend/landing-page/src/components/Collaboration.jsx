@@ -44,8 +44,6 @@ const Collaboration = () => {
             ))}
           </ul>
 
-          <div className="body-2">Partners: Coinbase, Base, Nethermind, Starknet, Ethereum, Eliza, Arbitrum</div>
-
           <Button>Try it now</Button>
         </div>
 
