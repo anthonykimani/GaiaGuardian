@@ -40,8 +40,8 @@ const Header = () => {
         <a className="block w-[12rem] xl:mr-8" href="#hero">
           <img
             src={brainwave}
-            width={190}
-            height={40}
+            width={100}
+            height={30}
             alt="Brainwave"
             className="pointer-events-none select-none"
           />

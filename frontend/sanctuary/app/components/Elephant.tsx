@@ -14,32 +14,58 @@ import {
   ExtrudeGeometry,
 } from "three"
 
-const randomMessages = [
-  "Hello there!",
-  "It's a beautiful day!",
-  "I love peanuts!",
-  "Let's go for a walk!",
-  "Who wants to play?",
-]
-
 export default function Elephant({
   position,
   otherElephants,
-}: { position: [number, number, number]; otherElephants: Group[] }) {
+}: {
+  position: [number, number, number]
+  otherElephants: Group[]
+}) {
   const groupRef = useRef<Group>(null)
   const [message, setMessage] = useState("")
-  const [direction, setDirection] = useState(new Vector3(Math.random() - 0.5, 0, Math.random() - 0.5).normalize())
+  const [inputValue, setInputValue] = useState("")
+  const [direction, setDirection] = useState(
+    new Vector3(Math.random() - 0.5, 0, Math.random() - 0.5).normalize()
+  )
   const [isInteracting, setIsInteracting] = useState(false)
+  const [loading, setLoading] = useState(false)
   const interactionTimer = useRef<NodeJS.Timeout | null>(null)
   const speed = 0.02
   const legAnimationRef = useRef({ time: 0 })
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setMessage(randomMessages[Math.floor(Math.random() * randomMessages.length)])
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
+  // The API is now called only when the user presses the Send button.
+  const fetchResponse = async () => {
+    if (loading) return // Prevent duplicate requests.
+    setLoading(true)
+    // Use the user input or fallback to "Hello"
+    const messageToSend = inputValue.trim() || "Hello"
+    try {
+      const response = await fetch(
+        "http://localhost:3000//message",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            text: messageToSend,
+            userId: "elephant",
+            userName: "Elephant",
+          }),
+        }
+      )
+
+      const data = await response.json()
+      if (data.length > 0) {
+        setMessage(data[0].text)
+        setTimeout(() => setMessage(""), 60000) // Clear the message after 30 seconds.
+      }
+      // Clear the input field after sending.
+      setInputValue("")
+    } catch (error) {
+      console.error("Error fetching response:", error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
     const changeDirectionInterval = setInterval(() => {
@@ -56,25 +82,33 @@ export default function Elephant({
         groupRef.current.position.add(direction.clone().multiplyScalar(speed))
 
         const bounds = 45
-        if (Math.abs(groupRef.current.position.x) > bounds || Math.abs(groupRef.current.position.z) > bounds) {
+        if (
+          Math.abs(groupRef.current.position.x) > bounds ||
+          Math.abs(groupRef.current.position.z) > bounds
+        ) {
           setDirection(direction.negate())
         }
 
         otherElephants.forEach((otherElephant) => {
-          if (otherElephant !== groupRef.current && groupRef.current.position.distanceTo(otherElephant.position) < 8) {
+          if (
+            otherElephant !== groupRef.current &&
+            groupRef.current.position.distanceTo(otherElephant.position) < 8
+          ) {
             setIsInteracting(true)
             setMessage("Nice to meet you!")
             if (interactionTimer.current) clearTimeout(interactionTimer.current)
             interactionTimer.current = setTimeout(() => {
               setIsInteracting(false)
-              setDirection(new Vector3(Math.random() - 0.5, 0, Math.random() - 0.5).normalize())
+              setDirection(
+                new Vector3(Math.random() - 0.5, 0, Math.random() - 0.5).normalize()
+              )
             }, 5000)
           }
         })
 
         groupRef.current.rotation.y = Math.atan2(direction.x, direction.z)
 
-        // Animate legs
+        // Animate legs.
         legAnimationRef.current.time += delta * 4
         const legAngle = Math.sin(legAnimationRef.current.time) * 0.2
         groupRef.current.children.forEach((child, index) => {
@@ -84,12 +118,18 @@ export default function Elephant({
         })
       }
 
-      const trunk = groupRef.current.children.find((child) => child.name === "trunk") as Mesh
+      // Animate trunk.
+      const trunk = groupRef.current.children.find(
+        (child) => child.name === "trunk"
+      ) as Mesh
       if (trunk) {
         trunk.rotation.x = Math.sin(state.clock.elapsedTime * 2) * 0.1
       }
 
-      const tail = groupRef.current.children.find((child) => child.name === "tail") as Mesh
+      // Animate tail.
+      const tail = groupRef.current.children.find(
+        (child) => child.name === "tail"
+      ) as Mesh
       if (tail) {
         tail.rotation.x = Math.sin(state.clock.elapsedTime * 3) * 0.2
       }
@@ -147,10 +187,18 @@ export default function Elephant({
       </mesh>
 
       {/* Ears */}
-      <mesh position={[-0.8, 1.2, 1.5]} rotation={[0, -0.5, 0]} geometry={highPolyGeometries.ear}>
+      <mesh
+        position={[-0.8, 1.2, 1.5]}
+        rotation={[0, -0.5, 0]}
+        geometry={highPolyGeometries.ear}
+      >
         <meshStandardMaterial color="#A9A9A9" />
       </mesh>
-      <mesh position={[0.8, 1.2, 1.5]} rotation={[0, 0.5, 0]} geometry={highPolyGeometries.ear}>
+      <mesh
+        position={[0.8, 1.2, 1.5]}
+        rotation={[0, 0.5, 0]}
+        geometry={highPolyGeometries.ear}
+      >
         <meshStandardMaterial color="#A9A9A9" />
       </mesh>
 
@@ -168,10 +216,18 @@ export default function Elephant({
       </group>
 
       {/* Tusks */}
-      <mesh position={[-0.3, 0.5, 2]} rotation={[0, 0, Math.PI / 4]} geometry={highPolyGeometries.tusk}>
+      <mesh
+        position={[-0.3, 0.5, 2]}
+        rotation={[0, 0, Math.PI / 4]}
+        geometry={highPolyGeometries.tusk}
+      >
         <meshStandardMaterial color="#F0F0F0" />
       </mesh>
-      <mesh position={[0.3, 0.5, 2]} rotation={[0, 0, -Math.PI / 4]} geometry={highPolyGeometries.tusk}>
+      <mesh
+        position={[0.3, 0.5, 2]}
+        rotation={[0, 0, -Math.PI / 4]}
+        geometry={highPolyGeometries.tusk}
+      >
         <meshStandardMaterial color="#F0F0F0" />
       </mesh>
 
@@ -203,13 +259,38 @@ export default function Elephant({
         </mesh>
       </group>
 
-      {/* Chat box */}
-      <Html position={[0, 3.5, 0]} scale={0.5}>
-        <div className="bg-white p-1 rounded-lg shadow-md" style={{ width: "120px" }}>
-          <p className="text-xs">{message}</p>
+      {/* Chat display (upper HTML) shows the current message without a button */}
+      <Html position={[0, 3.5, 0]} scale={0.7}>
+        <div
+          className="bg-white p-2 rounded-lg shadow-md"
+          style={{ width: "200px", textAlign: "center" }}
+        >
+          <p className="text-sm">{message}</p>
+        </div>
+      </Html>
+
+      {/* Input field with the Send button (migrated below the elephant) */}
+      <Html position={[0, -3.5, 0]} scale={0.7}>
+        <div
+          className="bg-white p-2 rounded-lg shadow-md"
+          style={{ width: "200px", textAlign: "center" }}
+        >
+          <input
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Type your message..."
+            className="border p-1 w-full mb-2"
+          />
+          <button
+            onClick={fetchResponse}
+            disabled={loading}
+            className="bg-gray-300 hover:bg-gray-500 text-white py-0.5 px-1 text-xs rounded"
+          >
+            {loading ? "Loading..." : "Send"}
+          </button>
         </div>
       </Html>
     </group>
   )
 }
-
