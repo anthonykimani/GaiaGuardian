@@ -30,11 +30,10 @@ export const PhotoChatMessage = () => {
       <Typewriter
         options={{
           strings: [
-            "Hey Brainwave, enhance this photo.",
-            "Hey Brainwave, give this photo a boost.",
-            "Brainwave, enhance the details in this photo.",
-            "Activate Brainwave mode to refine this photo.",
-            "Brainwave, apply your magic to this photo.",
+            "Mint a new NFT for Jumbo to commemorate his first swim.",
+            "Show me the current balance of Kiki's wallet",
+            "Display the current NFT status for my adopted elephant",
+            "How is my elephant interacting with others?",
           ],
           autoStart: true,
           loop: true,
@@ -50,7 +49,7 @@ export const VideoChatMessage = ({ isPlaying }) => {
     <div className="absolute top-8 left-[3.125rem] w-full max-w-[14rem] pt-2.5 pr-2.5 pb-7 pl-5 bg-n-6 rounded-t-xl rounded-br-xl font-code text-base md:max-w-[17.5rem]">
       <Typewriter
         options={{
-          strings: isPlaying ? ["Video generating..."] : ["Video generated!"],
+          strings: isPlaying ? ["Minting NFT  on Base..."] : ["Video generated!"],
           cursor: isPlaying ? "|" : "",
           autoStart: true,
           deleteSpeed: isPlaying ? "natural" : Infinity,

@@ -21,9 +21,9 @@ const Services = () => {
         <Heading
           title={
             <>
-              Generative AI made for{" "}
+              AI agent for wildlife {" "}
               <span className="inline-block relative font-semibold">
-                creators
+                conservation
                 <img
                   src={curve}
                   className="absolute top-full left-0 w-full xl:-mt-2 pointer-events-none select-none"
@@ -34,7 +34,7 @@ const Services = () => {
               </span>
             </>
           }
-          text="Brainwave unlocks the potential of AI-powered applications."
+          text="Benhancing donor engagement and support for wildlife conservation:"
         />
 
         <div className="relative">
@@ -53,7 +53,7 @@ const Services = () => {
             <div className="relative z-1 max-w-[17rem] ml-auto">
               <h4 className="h4 mb-4">Smartest AI</h4>
               <p className="body-2 mb-[3rem] text-n-3">
-                Brainwave unlocks the potential of AI-powered applications.
+              Enhancing donor engagement and support for wildlife conservation:.
               </p>
               <ul className="body-2">
                 {brainwaveServices.map((item, i) => (
@@ -91,10 +91,9 @@ const Services = () => {
               </div>
 
               <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-15">
-                <h4 className="h4 mb-4">Photo editing</h4>
+                <h4 className="h4 mb-4">Individual Elephant Wallets </h4>
                 <p className="body-2 mb-[3rem] text-n-3">
-                  Automatically enhance your photos using our AI app&apos;s
-                  photo editing feature. Try it now!
+                Each elephant is assigned a unique digital wallet, enabling it to receive donations. These wallets can interact with each other, allowing elephants to share resources, thereby fostering a sense of community and mutual support among the represented elephants.
                 </p>
               </div>
 
@@ -103,10 +102,9 @@ const Services = () => {
 
             <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[46rem]">
               <div className="py-12 px-4 xl:px-8">
-                <h4 className="h4 mb-4">Video generation</h4>
+                <h4 className="h4 mb-4">NFT generation</h4>
                 <p className="body-2 mb-[2rem] text-n-3">
-                  The world&apos;s most powerful AI photo and video art
-                  generation engine. What will you create?
+                The project utilizes blockchain technology to mint NFTs. These NFTs evolve based on the elephant's milestones, offering a dynamic and engaging experience for supporters.
                 </p>
 
                 <ul className="flex items-center justify-between">

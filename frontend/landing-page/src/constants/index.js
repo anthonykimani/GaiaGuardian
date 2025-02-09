@@ -74,9 +74,10 @@ export const notificationImages = [notification4, notification3, notification2];
 export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
 
 export const brainwaveServices = [
-  "Photo generating",
-  "Photo enhance",
-  "Seamless Integration",
+  "Dynamic NFT Minting:",
+  "Autonomous Donor Engagement",
+  "AI-Driven Elephant Representation",
+  "Immersive 3D Visualization"
 ];
 
 export const brainwaveServicesIcons = [
