@@ -25,6 +25,10 @@ function Signboard({ position, rotation = [0, 0, 0], imageUrl }: SignboardProps)
         <cylinderGeometry args={[0.3, 0.3, 4]} />
         <meshStandardMaterial color="#8B4513" />
       </mesh>
+      <mesh position={[0, 0, 0]}>
+        <planeGeometry args={[10, 6]} />
+        <meshStandardMaterial map={texture} transparent={true} />
+      </mesh>
     </group>
   )
 }
